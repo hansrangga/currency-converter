@@ -8,8 +8,9 @@ jdk:
 # Cache Maven dependencies to speed up builds
 cache:
   directories:
-    - $HOME/.m2
+    - $HOME/currenter/.m2
 
 script:
-  - mvn clean install
+  - mvn -f /currenter/pom.xml clean install
+
 
