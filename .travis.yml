@@ -1,0 +1,32 @@
+# .travis.yml
+
+language: java
+jdk:
+  - openjdk8
+
+php:
+  - "7.4"
+
+env:
+  - LARAVEL_VERSION=^9.0
+
+# Cache Maven dependencies to speed up builds
+cache:
+  directories:
+    - $HOME/.m2
+
+# Cache Composer packages for Laravel
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+script:
+  - mvn clean install
+
+script:
+  - php artisan test
+
