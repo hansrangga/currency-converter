@@ -11,6 +11,7 @@ cache:
     - $HOME/currenter/.m2
 
 script:
-  - mvn -f /currenter/pom.xml clean install
+  - cd currenter
+  - mvn clean install
 
 
